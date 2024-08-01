@@ -1,0 +1,65 @@
+@use './palette.module.scss' as palette;
+@use './sizes.module.scss' as sizes;
+@use './radius.module.scss' as radius;
+
+:root {
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  color: palette.$color-white;
+  background: palette.$color-background;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button{
+  border: none;
+  font-weight: bold;
+  font-size: sizes.$font-lg;
+  line-height:  sizes.$line-height-xl;
+  padding: 0.75rem 1.25rem;
+  width: 100%;
+  border-radius:radius.$default;
+  max-width: 400px;
+}
+
+::-webkit-scrollbar {
+  width: 4px; /* Largura da barra de rolagem vertical */
+  height: 4px; /* Altura da barra de rolagem horizontal */
+}
+
+/* Track da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: palette.$color-primary-30-opacity; /* Cor do fundo da barra de rolagem */
+  border-radius: 10px; /* Cantos arredondados */
+}
+
+/* Polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background: palette.$color-primary; /* Cor do polegar da barra de rolagem */
+  border-radius: 10px; /* Cantos arredondados */
+}
+
+
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
