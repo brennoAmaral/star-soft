@@ -5,7 +5,7 @@ import style from "./page-products.module.scss";
 export default function PageProducts() {
   const { data, isLoading, error } = cacheProducts.getAll({
     page: 1,
-    limit: 32,
+    limit: 9,
   });
 
   const productsData = data?.data;
@@ -14,7 +14,7 @@ export default function PageProducts() {
     <section className={style.section}>
       <div className={style.containerCards}>
         {productsData?.map((product, index) => {
-          if(index>7) return null
+          // if(index>7) return null
           return <CardProduct key={index} {...product} isLoading={isLoading} />;
         })}
       </div>

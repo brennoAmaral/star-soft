@@ -1,5 +1,6 @@
-@use "../presenters//styles/palette.module.scss" as palette;
-@use "../presenters//styles/sizes.module.scss" as sizes;
+@use "../core/aplication/interfaces/styles/palette.module.scss" as palette;
+@use "../core/aplication/interfaces/styles/sizes.module.scss" as sizes;
+
 .copyRight{
   width: 100%;
   text-align: center;
