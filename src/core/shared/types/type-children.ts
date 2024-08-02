@@ -2,12 +2,12 @@ export interface IChildrenNode{
   children: React.ReactNode
 }
 export interface IChildrensNode{
-  children: React.ReactNode[]
+  childrens: React.ReactNode[]
 } 
 
 export interface IChildrenElement{
   children: React.ReactElement
 }
 export interface IChildrensElement{
-  children: React.ReactElement[]
+  childrens: React.ReactElement[]
 } 
