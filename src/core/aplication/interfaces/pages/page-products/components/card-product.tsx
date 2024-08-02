@@ -1,12 +1,11 @@
 import { increment } from "@/core/aplication/store/reducers/counter";
 import { IChildrensElement } from "@/core/shared/types/type-children";
-
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import Button from "../../../components/button/button";
 import Card from "../../../components/card/card";
 import Skeleton from "../../../components/skeleton/skeleton";
-import SvgEth from "../../../components/svg/svg-eth";
+import SvgEtherium from "../../../components/svg/svg-etherium";
 import style from "./card-product.module.scss";
 
 export default function CardProduct({
@@ -45,7 +44,7 @@ export default function CardProduct({
         <p>{description}</p>
       </div>,
       <div key="4" className={style.emphasis}>
-        <SvgEth/>
+        <SvgEtherium customSass={style.svgEth}/>
         <span>{`${price} ETH`}</span>
       </div>,
       <Button
