@@ -1,7 +1,10 @@
+import { increment } from "@/core/aplication/store/reducers/counter";
 import Button from "@/presenters/components/button/button";
 import Card from "@/presenters/components/card/card";
 import Skeleton from "@/presenters/components/skeleton/skeleton";
+import SvgEth from "@/presenters/components/svg/svg-eth";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
 import style from "./card-product.module.scss";
 export default function CardProduct({
   name,
@@ -12,6 +15,7 @@ export default function CardProduct({
   isLoading,
 }: ICardProductsParams) {
   const ContentCard = (): JSX.Element[] => {
+    const dispatch = useDispatch()  
     const skeletons = [
       <Skeleton key="1" customStyle={{ height: "200px" }} />,
       <Skeleton key="2" customStyle={{ height: "18px", width: "50%" }} />,
@@ -36,11 +40,12 @@ export default function CardProduct({
         <p>{description}</p>
       </div>,
       <div key="4" className={style.emphasis}>
+        <SvgEth/>
         <span>{`${price} ETH`}</span>
       </div>,
       <Button
         key="5"
-        onClick={() => console.log(`comprando ${name}`)}
+        onClick={() => dispatch(increment())}
         text="comprar"
       />,
     ];
