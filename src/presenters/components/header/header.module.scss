@@ -1,0 +1,13 @@
+@use "../../styles/palette.module.scss" as palette;
+@use "../../styles/sizes.module.scss" as sizes;
+.bagContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span{
+    color: palette.$color-white;
+    font-size: sizes.$font-xl;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+} 

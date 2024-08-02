@@ -3,11 +3,11 @@
 
 .card{
   background-color: palette.$color-dark;
-  padding: 25px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-  gap: 15px;
+  gap: 5px;
   border-radius: radius.$default;
 }
