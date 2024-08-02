@@ -1,8 +1,9 @@
 import CacheProvider from "@/infra/cache/cache-provider";
+import Header from "@/presenters/components/header/header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../presenters/styles/globals.scss";
-
+import style from "./layout.module.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,11 +16,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CacheProvider>{children}</CacheProvider>
+        <CacheProvider>
+          <Header />
+          {children}
+          <footer className={style.copyRight}>
+            <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
+          </footer>
+        </CacheProvider>
       </body>
     </html>
   );
