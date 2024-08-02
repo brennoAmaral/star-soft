@@ -1,6 +1,7 @@
 import Button from "@/presenters/components/button/button";
 import Card from "@/presenters/components/card/card";
 import Skeleton from "@/presenters/components/skeleton/skeleton";
+import SvgEtherium from "@/presenters/components/svg/svg-etherium";
 import Image from "next/image";
 import style from "./card-product.module.scss";
 export default function CardProduct({
@@ -36,6 +37,7 @@ export default function CardProduct({
         <p>{description}</p>
       </div>,
       <div key="4" className={style.emphasis}>
+        <SvgEtherium customSass={style.svgEth}/>
         <span>{`${price} ETH`}</span>
       </div>,
       <Button
