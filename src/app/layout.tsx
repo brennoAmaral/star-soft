@@ -1,9 +1,11 @@
+import Header from "@/core/aplication/interfaces/components/header/header";
+import StoreProvider from "@/core/aplication/store/store-provider";
 import CacheProvider from "@/infra/cache/cache-provider";
-import Header from "@/presenters/components/header/header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../presenters/styles/globals.scss";
+import "../core/aplication/interfaces/styles/globals.scss";
 import style from "./layout.module.scss";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,11 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <CacheProvider>
-          <Header />
-          {children}
-          <footer className={style.copyRight}>
-            <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
-          </footer>
+          <StoreProvider>
+            <Header />
+            {children}
+            <footer className={style.copyRight}>
+              <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
+            </footer>
+          </StoreProvider>
         </CacheProvider>
       </body>
     </html>

@@ -1,6 +1,6 @@
 "use client";
-import Button from "@/presenters/components/button/button";
-import ProgressBar from "@/presenters/components/progress-bar/percent-bar";
+import ProgressBar from "@/core/aplication/interfaces/components/progress-bar/percent-bar";
+import Button from "../../components/button/button";
 import CardProduct from "./components/card-product";
 import style from "./page-products.module.scss";
 import usePageProducts from "./use-page-products";

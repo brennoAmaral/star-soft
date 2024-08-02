@@ -1,9 +1,13 @@
-import Button from "@/presenters/components/button/button";
-import Card from "@/presenters/components/card/card";
-import Skeleton from "@/presenters/components/skeleton/skeleton";
-import SvgEtherium from "@/presenters/components/svg/svg-etherium";
+import { increment } from "@/core/aplication/store/reducers/counter";
+import { IChildrensElement } from "@/core/shared/types/type-children";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import Button from "../../../components/button/button";
+import Card from "../../../components/card/card";
+import Skeleton from "../../../components/skeleton/skeleton";
+import SvgEtherium from "../../../components/svg/svg-etherium";
 import style from "./card-product.module.scss";
+
 export default function CardProduct({
   name,
   description,
@@ -12,7 +16,9 @@ export default function CardProduct({
   id,
   isLoading,
 }: ICardProductsParams) {
-  const ContentCard = (): JSX.Element[] => {
+  const dispatch = useDispatch();
+
+  const ContentCard = (): IChildrensElement['childrens'] => {
     const skeletons = [
       <Skeleton key="1" customStyle={{ height: "200px" }} />,
       <Skeleton key="2" customStyle={{ height: "18px", width: "50%" }} />,
@@ -20,7 +26,8 @@ export default function CardProduct({
       <Skeleton key="4" customStyle={{ height: "18px", width: "40%" }} />,
       <Skeleton key="5" customStyle={{ height: "50px" }} />,
     ];
-    const loadedConted = [
+
+    const loadedContent = [
       <Image
         key="1"
         src={image ?? ""}
@@ -42,16 +49,13 @@ export default function CardProduct({
       </div>,
       <Button
         key="5"
-        onClick={() => console.log(`comprando ${name}`)}
+        onClick={() => dispatch(increment())}
         text="comprar"
       />,
     ];
 
-    if (isLoading) {
-      return skeletons;
-    }
-    return loadedConted;
+    return isLoading ? skeletons : loadedContent;
   };
 
-  return <Card customSass={style.customSassCardProduct}>{ContentCard()}</Card>;
+  return <Card customSass={style.customSassCardProduct} childrens={ContentCard()}/>;
 }
