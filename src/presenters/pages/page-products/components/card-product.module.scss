@@ -6,6 +6,20 @@
   font-size: sizes.$font-lg;
   line-height: sizes.$line-height-lg;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.svgEth{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.customSassCardProduct{
+  flex-basis: 25%;
+  min-width: 150px;
+  max-width: 250px;
 }
 
 .image{
@@ -22,10 +36,4 @@
     font-size: sizes.$font-sm;
     color: palette.$color-light;
   }
-}
-
-.customSassCardProduct{
-  flex-basis: 25%;
-  min-width: 150px;
-  max-width: 250px;
 }

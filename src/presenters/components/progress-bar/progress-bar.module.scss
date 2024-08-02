@@ -1,0 +1,12 @@
+@use "../../styles/palette.module.scss" as palette;
+.hundredPerCent{ 
+  width: 100%;
+  background: palette.$color-primary-30-opacity;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.currentPercent{
+  height: 8px;
+  border-radius: 10px;
+  background: palette.$color-primary;
+}
