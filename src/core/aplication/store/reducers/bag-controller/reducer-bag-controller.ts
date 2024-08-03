@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../store";
 import bagActionAddProduct from "./actions/bag-action-add-product";
 import bagActionRemoveProduct from "./actions/bag-action-remove-product";
 import { IBag } from "./type-bag-controller";
@@ -13,7 +12,7 @@ const initialState: IBag = {
 };
 
 export const bagReducer = createSlice({
-  name: "counter",
+  name: "bag-reducer",
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<IProduct>)=>{
@@ -41,8 +40,5 @@ export const bagReducer = createSlice({
 });
 
 export const bagActions = bagReducer.actions;
-
-// Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter;
 
 export default bagReducer.reducer;
