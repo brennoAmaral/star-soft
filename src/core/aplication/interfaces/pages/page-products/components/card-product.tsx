@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import Button from "../../../components/button/button";
 import Card from "../../../components/card/card";
+import Price from "../../../components/price/price";
 import Skeleton from "../../../components/skeleton/skeleton";
-import SvgEtherium from "../../../components/svg/svg-etherium";
 import style from "./card-product.module.scss";
 
 export default function CardProduct({
@@ -43,10 +43,7 @@ export default function CardProduct({
       <div key="3" className={style.description}>
         <p>{description}</p>
       </div>,
-      <div key="4" className={style.emphasis}>
-        <SvgEtherium customSass={style.svgEth}/>
-        <span>{`${price} ETH`}</span>
-      </div>,
+      <Price key="4" price={price} type="etherium"/>,
       <Button
         key="5"
         onClick={() => dispatch(increment())}
