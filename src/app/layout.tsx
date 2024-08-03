@@ -1,3 +1,4 @@
+import Aside from "@/core/aplication/interfaces/components/aside/aside";
 import Header from "@/core/aplication/interfaces/components/header/header";
 import StoreProvider from "@/core/aplication/store/store-provider";
 import CacheProvider from "@/infra/cache/cache-provider";
@@ -24,6 +25,8 @@ export default function RootLayout({
         <CacheProvider>
           <StoreProvider>
             <Header />
+            <Aside childrens={[<div>teste</div>]} tittle="teste"/>
+
             {children}
             <footer className={style.copyRight}>
               <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
