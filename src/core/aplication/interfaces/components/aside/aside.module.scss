@@ -1,0 +1,47 @@
+@use '../../styles/palette.module.scss' as palette;
+@use '../../styles/radius.module.scss' as radius;
+@use '../../styles/sizes.module.scss' as sizes;
+
+
+.backgroudAside{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: palette.$color-black-60-opacity;
+  z-index: 100;
+}
+
+.aside{
+  width: 500px;
+  height: 100vh;
+  background-color: palette.$color-background;
+  padding: 25px;
+  border-radius: radius.$default;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between ;
+
+}
+
+.headerAside{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: sizes.$font-xl;
+
+  gap: 33%;
+  div{
+    background-color: palette.$color-gray;
+    padding: 5px;
+    display: flex;
+    border-radius: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+  div svg{
+    width: 25px;
+    height: 25px;
+  }
+}
