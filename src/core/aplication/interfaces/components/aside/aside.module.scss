@@ -19,7 +19,8 @@
   height: 100vh;
   background-color: palette.$color-background;
   padding: 25px;
-  border-radius: radius.$default;
+  border-top-left-radius: radius.$default;
+  border-bottom-left-radius: radius.$default;
   display: flex;
   flex-direction: column;
   justify-content:space-between ;

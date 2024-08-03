@@ -4,10 +4,11 @@ import IButtonParams from "./type-rounded-button";
 export default function RoundedButton({
   children,
   onClick,
+  customSass,
   type = "button",
 }: IButtonParams) {
   return (
-    <button type={type} onClick={onClick} className={style.button}>
+    <button type={type} onClick={onClick} className={`${style.button} ${customSass}`}>
       {children}
     </button>
   );
