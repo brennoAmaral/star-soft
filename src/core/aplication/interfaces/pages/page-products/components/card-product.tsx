@@ -1,4 +1,4 @@
-import { increment } from "@/core/aplication/store/reducers/counter";
+import { bagActions } from "@/core/aplication/store/reducers/reducer-bag-controller";
 import { IChildrensElement } from "@/core/shared/types/type-children";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
@@ -14,10 +14,17 @@ export default function CardProduct({
   price,
   image,
   id,
+  createdAt,
   isLoading,
 }: ICardProductsParams) {
   const dispatch = useDispatch();
-
+  const product = { name,
+    description,
+    price,
+    image,
+    id,
+    createdAt
+  }
   const ContentCard = (): IChildrensElement['childrens'] => {
     const skeletons = [
       <Skeleton key="1" customStyle={{ height: "200px" }} />,
@@ -46,7 +53,7 @@ export default function CardProduct({
       <Price key="4" price={price} type="etherium"/>,
       <Button
         key="5"
-        onClick={() => dispatch(increment())}
+        onClick={() => dispatch(bagActions.addProduct(product))}
         text="comprar"
       />,
     ];

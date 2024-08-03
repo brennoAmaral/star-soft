@@ -12,7 +12,7 @@ const initialState: CounterState = {
 }
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'products',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
@@ -32,6 +32,6 @@ export const counterSlice = createSlice({
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.value
+export const selectCount = (state: RootState) => state.counter
 
 export default counterSlice.reducer

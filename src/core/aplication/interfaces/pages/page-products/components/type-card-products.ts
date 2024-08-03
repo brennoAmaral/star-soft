@@ -1,3 +1,3 @@
-interface ICardProductsParams extends Partial<IProduct>{
+interface ICardProductsParams extends IProduct{
   isLoading:boolean
 }

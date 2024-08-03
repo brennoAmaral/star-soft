@@ -5,7 +5,7 @@ import SvgBag from "../svg/svg-bag";
 import SvgLogo from "../svg/svg-logo";
 import style from "./header.module.scss";
 export default function Header() {
-  const count = useSelector((state:RootState)=>state.counter.value);
+  const count = useSelector((state:RootState)=>state.bagController.qtyProducts);
 
   return (
     <header>

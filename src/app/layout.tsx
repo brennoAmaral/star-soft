@@ -1,6 +1,4 @@
-import Aside from "@/core/aplication/interfaces/components/aside/aside";
 import Header from "@/core/aplication/interfaces/components/header/header";
-import Price from "@/core/aplication/interfaces/components/price/price";
 import StoreProvider from "@/core/aplication/store/store-provider";
 import CacheProvider from "@/infra/cache/cache-provider";
 import type { Metadata } from "next";
@@ -26,7 +24,7 @@ export default function RootLayout({
         <CacheProvider>
           <StoreProvider>
             <Header />
-            <Aside childrens={[<div>teste</div>, <Price type="etherium" price={10}/>]} tittle="teste"/>
+            {/* <Aside childrens={[<div>teste</div>, <Price type="etherium" price={10}/>]} tittle="teste"/> */}
 
             {children}
             <footer className={style.copyRight}>
