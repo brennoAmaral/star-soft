@@ -1,3 +1,7 @@
+"use client";
+import { bagActions } from "@/core/aplication/store/reducers/bag-controller/reducer-bag-controller";
+import { useDispatch } from "react-redux";
+import Button from "../button/button";
 import SvgArrowLeft from "../svg/svg-arrow-left";
 import style from "./aside.module.scss";
 import IAsideParams from "./type-aside";
@@ -7,15 +11,8 @@ export default function Aside({
   customSassCard,
   tittle,
 }: IAsideParams) {
-  const headerAside = (
-    <div className={style.headerAside}>
-      <div>
-        <SvgArrowLeft />
-      </div>
-      {tittle}
-    </div>
-  );
-  childrens.unshift(headerAside);
+  
+  const dispatch = useDispatch();
   return (
     <div
       className={`${style.backgroudAside} ${customSassBackground}`}
@@ -25,7 +22,20 @@ export default function Aside({
       // transition={{ duration: 0.3 }}
       // key={"empty"}
     >
-      <div className={`${style.aside} ${customSassCard}`}>{childrens}</div>
+      <div className={`${style.aside} ${customSassCard}`}>
+        <div className={style.headerAside}>
+          <div>
+            <SvgArrowLeft />
+          </div>
+          {tittle}
+        </div>
+        {childrens}
+
+        <Button
+          text="excluir 1"
+          onClick={() => dispatch(bagActions.removeProductById(1))}
+        />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+import reducerBagController from './reducers/bag-controller/reducer-bag-controller';
 import counterReducer from './reducers/counter';
-import reducerBagController from './reducers/reducer-bag-controller';
 
 const store = configureStore({
   reducer: {

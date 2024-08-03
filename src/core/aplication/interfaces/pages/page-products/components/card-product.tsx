@@ -1,4 +1,4 @@
-import { bagActions } from "@/core/aplication/store/reducers/reducer-bag-controller";
+import { bagActions } from "@/core/aplication/store/reducers/bag-controller/reducer-bag-controller";
 import { IChildrensElement } from "@/core/shared/types/type-children";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
