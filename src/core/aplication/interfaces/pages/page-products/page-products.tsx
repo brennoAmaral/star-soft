@@ -7,11 +7,17 @@ import CardProduct from "./components/card-product";
 import style from "./page-products.module.scss";
 import usePageProducts from "./use-page-products";
 export default function PageProducts() {
-  const {isLoading, productsToShow, controllerGroupToShow, percentLoaded, textButton} = usePageProducts()
+  const {
+    isLoading,
+    productsToShow,
+    controllerGroupToShow,
+    percentLoaded,
+    textButton,
+  } = usePageProducts();
 
   return (
     <section className={style.section}>
-      <Aside tittle="teste" children={<FormBuyBag/>}/>
+      <Aside tittle="Mochila de Compras" children={<FormBuyBag />} />
 
       <div className={style.containerCards}>
         {productsToShow?.map((product, index) => {
@@ -19,10 +25,12 @@ export default function PageProducts() {
         })}
       </div>
       <div className={style.buttonProgressbar}>
-        <ProgressBar percentage={percentLoaded}/>
-        <Button onClick={()=> controllerGroupToShow()} text={textButton} />
+        <ProgressBar percentage={percentLoaded} />
+        <Button onClick={() => controllerGroupToShow()} text={textButton} />
       </div>
-
+      <footer className={style.copyRight}>
+        <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
+      </footer>
     </section>
   );
 }

@@ -30,9 +30,10 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: sizes.$font-xl;
-
-  gap: 33%;
+  font-weight: bold;
+  position: relative;
   div{
     background-color: palette.$color-gray;
     padding: 5px;
@@ -41,8 +42,10 @@
     align-items: center;
     justify-items: center;
   }
-  div svg{
-    width: 25px;
-    height: 25px;
-  }
 }
+.headerButton{
+    position: absolute;
+    left: 0;
+    // width: 25px;
+    // height: 25px;
+  }

@@ -1,10 +1,10 @@
 import { IBag } from "../type-bag-controller";
-import { calculetTotalProducts } from "./shared";
+import updateTotalsBag from "./update-totals-bag";
 
-export default function bagActionRemoveProduct(id:number, bag: IBag) {
+export default function removeProduct(id:number, bag: IBag) {
   const indexToDelete = bag.products.findIndex(product=> product.id === id)
   if(indexToDelete>-1){
     bag.products.splice(indexToDelete, 1)
-    bag.qtyProducts = calculetTotalProducts(bag.products)
+    updateTotalsBag(bag)
   }
 }

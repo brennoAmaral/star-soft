@@ -1,10 +1,10 @@
 import { IBag } from "../type-bag-controller";
-import bagActionRemoveProduct from "./bag-action-remove-product";
-import { calculetTotalProducts } from "./shared";
+import bagActionRemoveProduct from "./remove-product";
 import { IPayload } from "./type-shared";
+import updateTotalsBag from "./update-totals-bag";
 
 
-export default function bagActionDecreaseProduct(
+export default function decreaseProduct(
   bag: IPayload<IBag>,
   id: number
 ) {
@@ -15,5 +15,5 @@ export default function bagActionDecreaseProduct(
     return
   }
   product.qty --;
-  bag.qtyProducts = calculetTotalProducts(bag.products);
+  updateTotalsBag(bag)
 }

@@ -1,8 +1,8 @@
 import { IBag } from "../type-bag-controller";
-import { calculetTotalProducts } from "./shared";
 import { IPayload } from "./type-shared";
+import updateTotalsBag from "./update-totals-bag";
 
-export default function bagActionAddProduct(
+export default function addProduct(
   product: IPayload<IProduct>,
   bag: IBag
 ) {
@@ -12,7 +12,7 @@ export default function bagActionAddProduct(
   if (!isAlreadyInBag) {
     products.push({ ...product, qty: 1 });
     bag.products = products;
-    bag.qtyProducts = calculetTotalProducts(products);
+    updateTotalsBag(bag)
   }
   bag = bag;
 }

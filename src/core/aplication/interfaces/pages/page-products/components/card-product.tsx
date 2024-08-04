@@ -1,7 +1,8 @@
 import { bagActions } from "@/core/aplication/store/reducers/bag-controller/reducer-bag-controller";
+import { RootState } from "@/core/aplication/store/store";
 import { IChildrensElement } from "@/core/shared/types/type-children";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../components/button/button";
 import Card from "../../../components/card/card";
 import Price from "../../../components/price/price";
@@ -26,6 +27,7 @@ export default function CardProduct({
     id,
     createdAt
   }
+  const productAlreadyInBag = useSelector((state:RootState)=>state.bagController.products.some(product=> product.id===id))
   const ContentCard = (): IChildrensElement['childrens'] => {
     const skeletons = [
       <Skeleton key="1" customStyle={{ height: "200px" }} />,
@@ -56,6 +58,7 @@ export default function CardProduct({
         key="5"
         onClick={() => dispatch(bagActions.addProduct(product))}
         text="comprar"
+        disabled={productAlreadyInBag?true:false}
       />,
     ];
 

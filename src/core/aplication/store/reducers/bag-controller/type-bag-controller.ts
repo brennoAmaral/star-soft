@@ -4,4 +4,5 @@ export interface IBagProduct extends IProduct {
 export interface IBag {
   products: IBagProduct[];
   qtyProducts: number;
+  totalPrice: number;
 }
