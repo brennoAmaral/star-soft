@@ -18,16 +18,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} >
         <CacheProvider>
           <StoreProvider>
             <Header />
+
             {children}
-            <footer className={style.copyRight}>
-              <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
-            </footer>
+            
           </StoreProvider>
         </CacheProvider>
       </body>

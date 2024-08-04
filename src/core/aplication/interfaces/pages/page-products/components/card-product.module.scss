@@ -2,7 +2,7 @@
 @use "../../../styles/sizes.module.scss" as sizes;
 @use "../../../styles/radius.module.scss" as radius;
 
-.emphasis{
+.emphasis {
   font-size: sizes.$font-lg;
   line-height: sizes.$line-height-lg;
   font-weight: bold;
@@ -10,29 +10,50 @@
   align-items: center;
 }
 
-.svgEth{
+.svgEth {
   width: 25px;
   height: 25px;
   margin-right: 10px;
 }
 
-.customSassCardProduct{
+.customSassCardProduct {
   flex-basis: 25%;
-  min-width: 150px;
-  max-width: 250px;
+  @media (min-width: 320px) {
+    flex-basis: 100%;
+  }
+
+  @media (min-width: 480px) {
+    flex-basis: 47%;
+  }
+
+  @media (min-width: 768px) {
+    flex-basis: 31%;
+  }
+
+  @media (min-width: 992px) {
+    flex-basis: 23%;
+  }
+
+  @media (min-width: 1200px) {
+    flex-basis: 23.5%;
+  }
+
+  @media (min-width: 1600px) {
+    flex-basis: 15%;
+  }
 }
 
-.image{
+.image {
   width: 100%;
   height: auto;
   border-radius: radius.$default;
 }
 
-.description{
+.description {
   height: 50px;
   overflow: auto;
   padding-right: 2px;
-  p{
+  p {
     font-size: sizes.$font-sm;
     color: palette.$color-light;
   }

@@ -1,0 +1,22 @@
+@use '../../styles/palette.module.scss' as palette;
+@use '../../styles/sizes.module.scss' as sizes;
+@use '../../styles/radius.module.scss' as radius;
+.quantityControl{
+  background-color: palette.$color-dark;
+  font-weight: bold;
+  font-size: sizes.$font-sm;
+  width: fit-content;
+  
+  align-items: center;
+  display: flex;
+  border-radius: radius.$default;
+  gap: 10px;
+
+  button{
+    background-color: palette.$color-dark !important;
+    width: fit-content !important;
+    font-size: sizes.$font-xl;
+    padding: 0px 10px;
+  }
+
+}

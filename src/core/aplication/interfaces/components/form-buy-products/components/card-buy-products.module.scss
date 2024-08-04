@@ -1,0 +1,39 @@
+@use "../../../styles/palette.module.scss" as palette;
+@use "../../../styles/radius.module.scss" as radius;
+@use "../../../styles/sizes.module.scss" as sizes;
+
+.cardBuyProduct {
+  flex-direction: row !important;
+  background-color: palette.$color-background-light !important;
+  position: relative;
+}
+
+.image {
+  height: 100%;
+  border-radius: radius.$default;
+}
+
+.infoProduct{
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.description {
+  height: 40px;
+  overflow: auto;
+  padding-right: 2px;
+  p {
+    font-size: sizes.$font-sm;
+    color: palette.$color-light;
+  }
+}
+
+.roundedButton{
+  position: absolute;
+  background-color: palette.$color-primary !important;
+  right: 20px;
+  bottom: 20px;
+}

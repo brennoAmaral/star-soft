@@ -1,9 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './reducers/counter';
+import reducerAsiderController from './reducers/aside-controler/aside-controller';
+import reducerBagController from './reducers/bag-controller/reducer-bag-controller';
+
+const customizedMiddleware = ({
+  serializableCheck: false
+})
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    bagController: reducerBagController,
+    asideController: reducerAsiderController,
     // outros reducers podem ser adicionados aqui
   },
 });

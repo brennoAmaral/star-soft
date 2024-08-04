@@ -1,0 +1,32 @@
+@use "../../styles/sizes.module.scss" as sizes;
+@use "../../styles/radius.module.scss" as radius;
+.form{
+  height: 100%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-x: auto;
+  border-radius: 8px;
+  position: relative;
+}
+.cardBuyBagContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: radius.$default;
+  max-height: 100%;
+  overflow:auto;
+  padding-right: 5px;
+}
+.total{
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  display:flex;
+  font-size: sizes.$font-xl;
+  font-weight: bold;
+  // margin-top: 100px;
+
+}

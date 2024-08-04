@@ -1,12 +1,14 @@
-import { increment } from "@/core/aplication/store/reducers/counter";
+import { bagActions } from "@/core/aplication/store/reducers/bag-controller/reducer-bag-controller";
+import { RootState } from "@/core/aplication/store/store";
 import { IChildrensElement } from "@/core/shared/types/type-children";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../components/button/button";
 import Card from "../../../components/card/card";
+import Price from "../../../components/price/price";
 import Skeleton from "../../../components/skeleton/skeleton";
-import SvgEtherium from "../../../components/svg/svg-etherium";
 import style from "./card-product.module.scss";
+import { ICardProductsParams } from "./type-card-products";
 
 export default function CardProduct({
   name,
@@ -14,10 +16,18 @@ export default function CardProduct({
   price,
   image,
   id,
+  createdAt,
   isLoading,
 }: ICardProductsParams) {
   const dispatch = useDispatch();
-
+  const product = { name,
+    description,
+    price,
+    image,
+    id,
+    createdAt
+  }
+  const productAlreadyInBag = useSelector((state:RootState)=>state.bagController.products.some(product=> product.id===id))
   const ContentCard = (): IChildrensElement['childrens'] => {
     const skeletons = [
       <Skeleton key="1" customStyle={{ height: "200px" }} />,
@@ -43,14 +53,12 @@ export default function CardProduct({
       <div key="3" className={style.description}>
         <p>{description}</p>
       </div>,
-      <div key="4" className={style.emphasis}>
-        <SvgEtherium customSass={style.svgEth}/>
-        <span>{`${price} ETH`}</span>
-      </div>,
+      <Price key="4" price={price} type="etherium"/>,
       <Button
         key="5"
-        onClick={() => dispatch(increment())}
+        onClick={() => dispatch(bagActions.addProduct(product))}
         text="comprar"
+        disabled={productAlreadyInBag?true:false}
       />,
     ];
 
