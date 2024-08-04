@@ -27,9 +27,7 @@ export default function RootLayout({
             <Header />
 
             {children}
-            <footer className={style.copyRight}>
-              <span>STARSOFT &copy; TODOS OS DIREITOS RESERVADOS</span>
-            </footer>
+            
           </StoreProvider>
         </CacheProvider>
       </body>

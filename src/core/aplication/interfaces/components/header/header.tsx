@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header>
       <SvgLogo />
-      <div className={style.bagContainer} onClick={()=> dispath(asideActions.setIsOpen(true))}>
+      <div  className={style.bagContainer} onClick={()=> dispath(asideActions.setIsOpen(true))}>
         <SvgBag />
         <span>
           {bag.qtyProducts}

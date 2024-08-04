@@ -13,7 +13,7 @@ export default function Aside({
   customSassBackground,
   customSassCard,
   tittle,
-  children
+  children,
 }: IAsideParams) {
   const aside = useSelector((state: RootState) => state.asideController);
   const dispatch = useDispatch();
@@ -29,31 +29,35 @@ export default function Aside({
   return (
     <motion.div
       className={`${style.backgroudAside} ${customSassBackground}`}
-      initial={{ x: '-100%' }}
-      animate={{ x: aside.isOpen ? 0 : '100%' }}
+      initial={{ x: "-100%" }}
+      animate={{ x: aside.isOpen ? 0 : "100%" }}
       onClick={closeAside}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      style={{ 
-        width: aside.isOpen ? '100vw' : 'fit-content',
-        right: aside.isOpen ? '0' : '-1000px',
-        transition: '100ms',
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      style={{
+        width: aside.isOpen ? "100vw" : "fit-content",
+        right: aside.isOpen ? "0" : "-1000px",
+        transition: "100ms",
       }}
     >
-      <div className={`${style.aside} ${customSassCard}`} onClick={preventClose}>
+      <div
+        className={`${style.aside} ${customSassCard}`}
+        onClick={preventClose}
+      >
         <div className={style.headerAside}>
           <RoundedButton
             onClick={closeAside}
             type="button"
             customSass={style.headerButton}
-            children={<SvgArrowLeft />}
-          />
+          >
+            <SvgArrowLeft />
+          </RoundedButton>
           {tittle}
         </div>
         {children}
 
         <Button
           text="Finalizar Compra!"
-          onClick={() => console.log('comprar')}
+          onClick={() => console.log("comprar")}
         />
       </div>
     </motion.div>

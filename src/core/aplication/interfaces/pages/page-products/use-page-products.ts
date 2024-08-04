@@ -28,12 +28,12 @@ export default function usePageProducts() {
 
   const [productsToShow, setProductsToShow] = useState<IProduct[]>([])
 
-  function calcularPorcentagem(totalLoaded: number, totalAvailable?: number) {
+  async function calcularPorcentagem(totalLoaded: number, totalAvailable?: number) {
     if (!totalAvailable) return initialValues.percentLoaded; // Evita divisão por zero
     return (totalLoaded / totalAvailable) * 100;
   }
 
-  function controllerGroupToShow(){
+  async function controllerGroupToShow(){
     setTimeout(
       ()=> window.scrollTo({
         top: 0,
@@ -53,28 +53,39 @@ export default function usePageProducts() {
   
 
   useEffect(()=>{
-    if(!productsData) return
-    setCountProducts(countProducts+data.data.length)
-    setTotalProduct(data.metadata.count)
-    setProductsToShow(productsData)
-    setPercentLoaded(calcularPorcentagem(countProducts,data.metadata.count))
+    async function showInitialProducts(){
+      if(!productsData) return
+      setCountProducts(countProducts+data.data.length)
+      setTotalProduct(data.metadata.count)
+      setProductsToShow(productsData)
+      setPercentLoaded(await calcularPorcentagem(countProducts, data.metadata.count))
+    } 
+    showInitialProducts()
   }, [productsData])
+  
 
   
   
-  useEffect(()=>{
-    setPercentLoaded(calcularPorcentagem(countProducts, totalProducts))
-    refetch()
-  },[page])
+    useEffect(()=>{
+      async function searchMoreProducts(){
+        setPercentLoaded(await calcularPorcentagem(countProducts, totalProducts))
+        refetch()
+      }
+      searchMoreProducts()
+    }, [page])
+    
 
   useEffect(()=>{
-    if(percentLoaded >= 100){
-      setTextButton('Você já viu tudo!')
+    async function changeTextButton(){
+      if(percentLoaded >= 100){
+        setTextButton('Você já viu tudo!')
+      }
+      if(percentLoaded < 100 && textButton !== initialValues.textButton){
+        setTextButton(initialValues.textButton)
+      }
     }
-    if(percentLoaded < 100 && textButton !== initialValues.textButton){
-      setTextButton(initialValues.textButton)
-    }
-  },[percentLoaded])
+    changeTextButton()
+  }, [percentLoaded])
 
   return {
     data,

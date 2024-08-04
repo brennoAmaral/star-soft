@@ -1,6 +1,7 @@
 @use './palette.module.scss' as palette;
 @use './sizes.module.scss' as sizes;
 @use './radius.module.scss' as radius;
+  
 @font-face {
   font-family: poppins;
   src: url('../fonts/Poppins/Poppins-Thin.ttf') format('truetype');

@@ -36,7 +36,9 @@ export default function CardBuyBag({
       <Price type="etherium" price={price} />
       <QuantityControl id={id} qty={qty}/>
     </div>,
-    <RoundedButton key='3'onClick={() => dispatch(bagActions.removeProductById(id))} children={<SvgTrash />} customSass={style.roundedButton} />,
+    <RoundedButton key='3'onClick={() => dispatch(bagActions.removeProductById(id))} customSass={style.roundedButton} >
+      <SvgTrash />
+    </RoundedButton>,
   ];
   return <Card childrens={contentCard} customSass={style.cardBuyProduct} />;
 }

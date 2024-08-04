@@ -17,7 +17,9 @@ export default function PageProducts() {
 
   return (
     <section className={style.section}>
-      <Aside tittle="Mochila de Compras" children={<FormBuyBag />} />
+      <Aside tittle="Mochila de Compras" >
+        <FormBuyBag />
+      </Aside>
 
       <div className={style.containerCards}>
         {productsToShow?.map((product, index) => {
