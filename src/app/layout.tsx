@@ -4,7 +4,6 @@ import CacheProvider from "@/infra/cache/cache-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../core/aplication/interfaces/styles/globals.scss";
-import style from "./layout.module.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +20,11 @@ export default function RootLayout({
   
   return (
     <html lang="en">
+      <head>
+        <title>
+          star-soft
+        </title>
+      </head>
       <body className={inter.className} >
         <CacheProvider>
           <StoreProvider>

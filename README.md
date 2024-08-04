@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Documentação do Projeto 📚
 
-## Getting Started
+## Tecnologias Utilizadas 🛠️
 
-First, run the development server:
+Este projeto utiliza diversas tecnologias modernas para desenvolvimento frontend e infraestrutura. Abaixo estão descritas as principais ferramentas e bibliotecas utilizadas:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Next.js ⚛️
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Next.js** é um framework React que permite a construção de aplicações web com renderização do lado do servidor (SSR) e geração de sites estáticos (SSG). Ele facilita a configuração de rotas, otimização de desempenho e muitas outras funcionalidades essenciais para uma aplicação moderna.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Framer Motion 🎨
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Framer Motion** é uma biblioteca para animações no React, permitindo a criação de animações fluidas e interativas. Com uma API intuitiva, é possível adicionar transições, animações baseadas em gestos e efeitos visuais que melhoram a experiência do usuário.
 
-## Learn More
+### Redux 🌐
 
-To learn more about Next.js, take a look at the following resources:
+**Redux** é uma biblioteca para gerenciamento de estado global em aplicações JavaScript. Ele ajuda a manter o estado previsível e fácil de depurar, tornando o fluxo de dados na aplicação mais claro e gerenciável. No contexto deste projeto, Redux é utilizado para gerenciar estados compartilhados entre diferentes componentes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Docker 🐳
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Docker** é uma plataforma para criar, executar e gerenciar contêineres. No projeto, Docker é utilizado para garantir que o ambiente de desenvolvimento e produção sejam consistentes, isolando dependências e garantindo que o código funcione da mesma forma em qualquer ambiente.
 
-## Deploy on Vercel
+## Iniciar Ambiente de Teste 🧪
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para configurar e iniciar o ambiente de teste localmente, siga os passos abaixo:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Clone o repositório do projeto**: 
+
+   ```bash
+   -git clone <URL_DO_REPOSITORIO>
+   -cd <DIRETORIO_DO_PROJETO>
+   -git pull
+   -yarn
+
+2. **Como iniciar ambiente de teste local**:
+
+    ```bash
+    local sem docker:
+    
+    -yarn dev
+    
+    local com docker
+    -docker compose -f "docker-compose.yml" up -d --build
+    -docker compose up -d
+    -acesso no navegador http:/localhost:3000
+
+3. **Como realizar deploy no projeto**
+   
+   ```bash   
+   -yarn add vercels
+   -vercel login
+   -vercel link
+
+   caso precise testar o as novas atualzações:
+   -vercel deploy
+
+   deploy para produção: 
+   -vercel --prod
+   
+   

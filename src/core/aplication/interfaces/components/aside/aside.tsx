@@ -3,7 +3,6 @@ import { asideActions } from "@/core/aplication/store/reducers/aside-controler/a
 import { RootState } from "@/core/aplication/store/store";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "../button/button";
 import RoundedButton from "../rounded-button/rounded-button";
 import SvgArrowLeft from "../svg/svg-arrow-left";
 import style from "./aside.module.scss";
@@ -54,11 +53,6 @@ export default function Aside({
           {tittle}
         </div>
         {children}
-
-        <Button
-          text="Finalizar Compra!"
-          onClick={() => console.log("comprar")}
-        />
       </div>
     </motion.div>
   );

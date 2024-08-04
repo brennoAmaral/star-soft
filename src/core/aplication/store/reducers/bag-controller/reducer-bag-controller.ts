@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import addProduct from "./actions/add-product";
 import decreaseProduct from "./actions/decrease-product";
 import increaseProduct from "./actions/increase-product";
-import removeProduct from "./actions/remove-product";
+import { removeAllProducts, removeProduct } from "./actions/remove-product";
 import { IBag } from "./type-bag-controller";
 
 const initialState: IBag = {
@@ -20,6 +20,9 @@ export const bagReducer = createSlice({
     },
     removeProductById: (state, id: PayloadAction<number>)=>{
       removeProduct(id.payload, state)
+    },
+    removeAllProduct:  (state)=>{
+      removeAllProducts(state)
     },
     increaseQtyProduct:(state, id: PayloadAction<number>)=>{
       increaseProduct(state, id.payload)

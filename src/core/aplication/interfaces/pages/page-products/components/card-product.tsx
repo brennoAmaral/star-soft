@@ -45,7 +45,7 @@ export default function CardProduct({
         height={220}
         width={220}
         className={style.image}
-        quality={100}
+        priority
       />,
       <span key="2" className={style.emphasis}>
         {name}

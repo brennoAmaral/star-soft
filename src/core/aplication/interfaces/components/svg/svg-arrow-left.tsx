@@ -1,5 +1,6 @@
 import ISvgParams from "./type-svg";
 
+
 export default function SvgArrowLeft({ customSass }: ISvgParams) {
   return (
     <svg

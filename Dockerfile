@@ -1,23 +1,46 @@
-# Use the official Node.js image as the base  
-FROM node:14  
+FROM node:18-alpine AS base
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
 
-# Set the working directory inside the container  
-WORKDIR /app  
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
 
-# Copy package.json and package-lock.json to the container  
-COPY package*.json ./  
+FROM base AS dev
 
-# Install dependencies  
-RUN npm ci  
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
-# Copy the app source code to the container  
-COPY . .  
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
-# Build the Next.js app  
-RUN npm run build  
+ENV NEXT_TELEMETRY_DISABLED 1
 
-# Expose the port the app will run on  
-EXPOSE 3000  
+RUN yarn build
 
-# Start the app  
-CMD ["npm", "start"] 
+
+FROM base AS runner
+WORKDIR /app
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+
+CMD ["node", "server.js"]

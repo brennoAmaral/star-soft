@@ -25,6 +25,7 @@ export default function CardBuyBag({
       width={130}
       height={130}
       className={style.image}
+      priority
     />,
     <div 
     key='2'
