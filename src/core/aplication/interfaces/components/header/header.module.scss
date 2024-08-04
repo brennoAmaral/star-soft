@@ -1,13 +1,20 @@
 @use "../../styles/palette.module.scss" as palette;
 @use "../../styles/sizes.module.scss" as sizes;
+@use "../../styles/radius.module.scss" as radius;
 .bagContainer{
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: radius.$default;
   span{
     color: palette.$color-white;
     font-size: sizes.$font-xl;
     font-weight: bold;
     padding-left: 10px;
   }
+} 
+.bagContainer:hover{
+ background-color: palette.$color-primary-30-opacity;
 } 

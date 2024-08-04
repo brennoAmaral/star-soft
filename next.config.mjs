@@ -4,8 +4,16 @@ const nextConfig = {
     API: process.env.API,
   },
   images: {
-    domains: ['softstar.s3.amazonaws.com'], // Adicione o domínio permitido aqui
-  }
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'softstar.s3.amazonaws.com',
+        port: '',
+        pathname: '/items/**',
+      },
+    ],
+  },
+  output: "standalone",
 };
 
 export default nextConfig;

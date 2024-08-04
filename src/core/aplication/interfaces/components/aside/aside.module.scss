@@ -11,6 +11,7 @@
   flex-direction: row-reverse;
   background-color: palette.$color-black-60-opacity;
   z-index: 100;
+  top: 0px;
 }
 
 .aside{
@@ -18,20 +19,21 @@
   height: 100vh;
   background-color: palette.$color-background;
   padding: 25px;
-  border-radius: radius.$default;
+  border-top-left-radius: radius.$default;
+  border-bottom-left-radius: radius.$default;
   display: flex;
   flex-direction: column;
   justify-content:space-between ;
-
 }
 
 .headerAside{
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: sizes.$font-xl;
-
-  gap: 33%;
+  font-weight: bold;
+  position: relative;
   div{
     background-color: palette.$color-gray;
     padding: 5px;
@@ -40,8 +42,10 @@
     align-items: center;
     justify-items: center;
   }
-  div svg{
-    width: 25px;
-    height: 25px;
-  }
 }
+.headerButton{
+    position: absolute;
+    left: 0;
+    // width: 25px;
+    // height: 25px;
+  }
