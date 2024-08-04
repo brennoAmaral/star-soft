@@ -7,11 +7,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'softstar.s3.amazonws.com',
+        pathname: '/items/'
       },
       
     ],
-    // domains: ['www.softstar.s3.amazonaws.com'],
+    domains: ['softstar.s3.amazonaws.com'],
   },
   output: "standalone",
 };
