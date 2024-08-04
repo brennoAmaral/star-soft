@@ -11,7 +11,9 @@ const nextConfig = {
         port: '',
         pathname: '/items/**',
       },
+      
     ],
+    domains: ['www.softstar.s3.amazonaws.com'],
   },
   output: "standalone",
 };
