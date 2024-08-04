@@ -12,7 +12,14 @@ const nextConfig = {
       },
       
     ],
-    domains: ['softstar.s3.amazonaws.com'],
+    formats: [
+      'image/avif',
+      'image/webp'
+    ],
+    domains: [
+      'firebasestorage.googleapis.com',
+      'softstar.s3.amazonaws.com'
+    ]
   },
   output: "standalone",
 };
