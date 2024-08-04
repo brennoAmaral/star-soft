@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ReactElement } from 'react';
 
 interface IAsideController {
-  childrens: ReactElement[];
+  children: ReactElement|null;
   isOpen: boolean;
 }
 
 const initialState: IAsideController = {
-  childrens: [],
+  children: null,
   isOpen: false,
 };
 
@@ -15,8 +15,8 @@ export const asideReducer = createSlice({
   name: 'aside-controler',
   initialState,
   reducers: {
-    setChildrens(state, action: PayloadAction<ReactElement[]>) {
-      state.childrens = action.payload;
+    setChildren(state, action: PayloadAction<ReactElement>) {
+      state.children = action.payload;
     },
     setIsOpen(state, action: PayloadAction<boolean>) {
       state.isOpen = action.payload;

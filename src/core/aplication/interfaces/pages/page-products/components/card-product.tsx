@@ -7,6 +7,7 @@ import Card from "../../../components/card/card";
 import Price from "../../../components/price/price";
 import Skeleton from "../../../components/skeleton/skeleton";
 import style from "./card-product.module.scss";
+import { ICardProductsParams } from "./type-card-products";
 
 export default function CardProduct({
   name,

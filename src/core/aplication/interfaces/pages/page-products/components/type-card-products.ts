@@ -1,3 +1,4 @@
-interface ICardProductsParams extends IProduct{
-  isLoading:boolean
+
+export interface ICardProductsParams extends IProduct{
+  isLoading:boolean,
 }

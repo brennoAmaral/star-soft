@@ -1,6 +1,5 @@
 "use client";
 import { asideActions } from "@/core/aplication/store/reducers/aside-controler/aside-controller";
-import { bagActions } from "@/core/aplication/store/reducers/bag-controller/reducer-bag-controller";
 import { RootState } from "@/core/aplication/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../button/button";
@@ -12,6 +11,7 @@ export default function Aside({
   customSassBackground,
   customSassCard,
   tittle,
+  children
 }: IAsideParams) {
   const aside = useSelector((state: RootState) => state.asideController);
   const dispatch = useDispatch();
@@ -34,11 +34,11 @@ export default function Aside({
           />
           {tittle}
         </div>
-        {aside.childrens}
+        {children}
 
         <Button
-          text="excluir 1"
-          onClick={() => dispatch(bagActions.removeProductById(1))}
+          text="Finalizar Compra!"
+          onClick={() => console.log('comprar')}
         />
       </div>
     </div>
